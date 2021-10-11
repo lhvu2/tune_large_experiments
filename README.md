@@ -1,4 +1,4 @@
-# tune_large_experiments
+# Leveraging Ray Tune for running a large number of experiments
 
 This is an open source repo that includes sample code to use Tune with multi-threaded Python for large-scale experiments.
 
