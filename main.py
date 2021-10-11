@@ -80,7 +80,7 @@ def create_points_to_evaluate():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", type=int, help="Timeout for each experiment (in seconds)", default=10)
-    parser.add_argument("-r", type=int, help="Random see to reproduce the run", default=42)
+    parser.add_argument("-r", type=int, help="Random seed to reproduce the run", default=42)
     parser.add_argument("-n", type=str, help="Experiment folder name", default="sample_experiment")
     parser.add_argument("-l", type=str, help="Ray log path", default="/tmp")
     args = parser.parse_args()
@@ -92,10 +92,10 @@ if __name__ == "__main__":
         trial_evaluator,
         search_alg=BasicVariantGenerator(points_to_evaluate=points_to_evaluate),
         stop=CustomStopper(),
-        name=args.n,
+        name=args.n,  # name of the experiment, it will be a folder created under log_dir below
         config={
-            "input_arg1": None,
-            "input_arg2": None,
+            "input_arg1": None, # this is supplied by points_to_evaluate
+            "input_arg2": None, # this is supplied by points_to_evaluate
             "timeout": args.t
         },
         local_dir=args.l
