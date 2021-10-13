@@ -62,7 +62,7 @@ def trial_evaluator(config):
 
 def create_points_to_evaluate():
     """
-    Saple function that create a short list of points for the Scheduler.
+    Sample function that creates a short list of points for the Scheduler.
     Each point is a dictionary of two keys: input_arg1 and input_arg2, which match with the config in tune.run()
 
     :return:
